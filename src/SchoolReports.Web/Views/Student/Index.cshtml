@@ -1,0 +1,46 @@
+﻿@using ReportWriter.Models.Student
+@model ReportWriter.Models.Student.StudentListingViewModel
+
+<div id="students">
+    <div class="title">All students</div>
+    <div id="studentsTable">
+        <table class="table" id="studentListingTable">
+            <thead class="thead-light" style="background-color:#d2f4ff">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">Teaching group</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr class="studentRow">
+                        <th scope="row" class="">
+                            @student.Id
+                        </th>
+                        <td class="">
+                            @student.Name
+                        </td>
+                        <td class="">
+                            @student.Gender
+                        </td>
+                        <td class="">
+                            @student.DOB
+                        </td>
+                        <td class="">
+                            @student.TeachingGroup
+                        </td>
+                        <td class="">
+                            <a class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                        </td>
+                    </tr>
+                }
+
+            <tbody>
+        </table>
+    </div>
+</div>
