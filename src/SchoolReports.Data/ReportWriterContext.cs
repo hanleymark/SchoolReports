@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReportWriterData.Models;
+using SchoolReports.Data.Models;
 using System;
 
-namespace ReportWriterData
+namespace SchoolReports.Data
 {
     public class ReportWriterContext : DbContext
     {

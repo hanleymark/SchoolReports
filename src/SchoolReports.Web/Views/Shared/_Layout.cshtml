@@ -43,14 +43,15 @@
         </div>
     </nav>
    
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2020 Mark Hanley</p>
-        </footer>
+    <div class="container">
+        <div class="mt-2 align-content-start">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2020 Mark Hanley</p>
+            </footer>
+        </div>
     </div>
-
     <environment names="Development">
         <script src="~/lib/jquery/jquery.js"></script>
         <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
@@ -69,5 +70,6 @@
     </environment>
 
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

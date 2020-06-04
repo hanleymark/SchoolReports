@@ -4,10 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using ReportWriterData;
-using ReportWriterService;
+using SchoolReports.Data;
+using SchoolReports.Services;
 
-namespace ReportWriter
+namespace SchoolReports.Web
 {
     public class Startup
     {
@@ -28,6 +28,7 @@ namespace ReportWriter
 
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ITeachingGroupService, TeachingGroupService>();
+            services.AddScoped<IStudentPageHelperService, StudentPageHelperService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,26 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using ReportWriterData;
-using ReportWriterData.Models;
+using SchoolReports.Data;
+using SchoolReports.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ReportWriterService
+namespace SchoolReports.Services
 {
     public class TeachingGroupService : ITeachingGroupService
     {
-        private ReportWriterContext _context { get; set; }
-        private List<SelectListItem> _teachingGroupsSelectList;
+        private ReportWriterContext  _context { get; set; }
 
-        public List<SelectListItem> TeachingGroupsSelectList
-        {
-            get
-            { return _teachingGroupsSelectList; }
-        }
+        public List<SelectListItem> TeachingGroupsSelectList { get; }
+
+        public int NumberOfRecords => _context.TeachingGroups.Count();
 
         public TeachingGroupService(ReportWriterContext context)
         {
             _context = context;
-            _teachingGroupsSelectList = GetAll().Select(tg => new SelectListItem
+            TeachingGroupsSelectList = GetAll().Select(tg => new SelectListItem
             {
                 Value = tg.Id.ToString(),
                 Text = tg.Name

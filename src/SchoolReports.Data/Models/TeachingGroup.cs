@@ -1,4 +1,4 @@
-﻿namespace ReportWriterData.Models
+﻿namespace SchoolReports.Data.Models
 {
     public class TeachingGroup
     {

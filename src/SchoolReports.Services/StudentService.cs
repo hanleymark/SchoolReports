@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReportWriterData;
-using ReportWriterData.Models;
+using SchoolReports.Data;
+using SchoolReports.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace ReportWriterService
+namespace SchoolReports.Services
 {
     public class StudentService : IStudentService
     {
@@ -16,6 +16,8 @@ namespace ReportWriterService
         {
             _context = context;
         }
+
+        public int NumberOfRecords => _context.Students.Count();
 
         public void Add(Student newStudent)
         {
@@ -33,10 +35,13 @@ namespace ReportWriterService
                 .FirstOrDefault(student => student.Id == Id);
         }
 
-        public int UpdateAndSave(Student student)
+        public void Update(Student student)
         {
             _context.Update(student);
+        }
 
+        public int SaveChanges()
+        {
             return _context.SaveChanges();
         }
     }

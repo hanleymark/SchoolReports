@@ -1,15 +1,15 @@
-﻿using ReportWriterData.Models;
-using System;
+﻿using SchoolReports.Data.Models;
 using System.Collections.Generic;
-using System.Text;
 
-namespace ReportWriterData
+namespace SchoolReports.Data
 {
     public interface IStudentService
     {
+        int NumberOfRecords { get; }
         IEnumerable<Student> GetAll();
         Student GetById(int Id);
         void Add(Student newStudent);
-        int UpdateAndSave(Student student);
+        void Update(Student student);
+        int SaveChanges();
     }
 }
